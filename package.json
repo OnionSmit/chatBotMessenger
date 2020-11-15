@@ -1,0 +1,60 @@
+{
+  "name": "MessengerStranger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nghminh163/MessengerStranger.git",
+  "author": "Hồ Văn Minh",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "axios": "^0.21.0",
+    "body-parser": "^1.18.3",
+    "boom": "^7.3.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "memory-cache": "^0.2.0",
+    "mongodb": "^3.2.2",
+    "parse-mongo-url": "^1.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.4.2",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "postinstall": "npm run build",
+    "start-babel": "babel-node server/",
+    "dev": "nodemon --exec babel-node server/",
+    "test": "jest test/",
+    "build": "babel -d ./dist ./server -s",
+    "clean": "rm -rf dist && mkdir dist",
+    "start": "node dist/index.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/node_modules/regenerator-runtime/runtime"
+    ]
+  }
+}
