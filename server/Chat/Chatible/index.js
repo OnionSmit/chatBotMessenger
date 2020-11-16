@@ -28,19 +28,12 @@ export default new class Chatible {
             return FbSendMessage(senderId, Messenges.Request.Sent);
           }
         break;
-      case 'bắt đầu':
-        FbSendMessageAs(senderId);
-        break;
       default:
         if (status === 1) {
-          if (text.toLowerCase() === "end") {
-            return endPairing(senderId);
-          }
-          return FbSendMessage(senderId, Messenges.Request.Sent);
+          if (text.toLowerCase() === "end") return endPairing(senderId);
+            return FbSendMessage(senderId, Messenges.Request.Sent);
         } else if (status == 2) {
-          if (text.toLowerCase() === "kết thúc"){
-            return endChat(senderId);
-          } 
+          if (text.toLowerCase() === "kết thúc") return endChat(senderId);
           return FbSendMessage(getPartnerId(senderId), Text(text));
         }
         break;
@@ -57,5 +50,5 @@ export default new class Chatible {
       resolve(status);
     });
   }
-
+  
 }();

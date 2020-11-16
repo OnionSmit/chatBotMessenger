@@ -29,4 +29,5 @@ export default (senderId) => {
   .catch((e) => {
     console.log(e.response.data);
   });
+  return "ok";
 };
