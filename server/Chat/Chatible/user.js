@@ -104,10 +104,10 @@ export function getPartnerId(senderId) {
   return PairedRoom.get(senderId);
 }
 
-export async function endPairing(senderId) {
+export function endPairing(senderId) {
   WaitingRoom.del(senderId);
-  await FbSendMessage(senderId, Messenges.End.Pair);
-  await FbSendMessageAs(senderId);
+  FbSendMessage(senderId, Messenges.End.Pair);
+  FbSendMessageAs(senderId);
 }
 
 export async function endChat(senderId) {
