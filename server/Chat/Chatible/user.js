@@ -107,7 +107,6 @@ export function getPartnerId(senderId) {
 export function endPairing(senderId) {
   WaitingRoom.del(senderId);
   FbSendMessage(senderId, Messenges.End.Pair);
-  FbSendMessageAs(senderId);
 }
 
 export async function endChat(senderId) {
@@ -118,8 +117,6 @@ export async function endChat(senderId) {
   await updateUser(partnerId, { status: 0, partnerId: null });
   FbSendMessage(senderId, Messenges.End.Chat.Active);
   FbSendMessage(partnerId, Messenges.End.Chat.Passive);
-  FbSendMessageAs(senderId);
-  FbSendMessageAs(partnerId);
 }
 
 export async function changeFavGender(senderId, favGender) {
