@@ -14,7 +14,6 @@ export default new class BotHandle {
     }
   }
 
-  //thông báo và ghép cặp người dùng
   async reply(senderId, pageId, timestamp, text) {
     const filterReply = this.checkFilter(text);
     if (_.isUndefined(filterReply)) {

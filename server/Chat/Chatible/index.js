@@ -29,7 +29,11 @@ export default new class Chatible {
           }
         break;
       default:
-        if (status === 1) {
+        if (status == 0) {
+          await Request(senderId, timestamp);
+          FbSendMessage(senderId, Messenges.Request.Send);
+          pair();
+        } else if (status === 1) {
           if (text.toLowerCase() === "end") return endPairing(senderId);
             return FbSendMessage(senderId, Messenges.Request.Sent);
         } else if (status == 2) {

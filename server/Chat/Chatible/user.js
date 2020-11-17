@@ -96,10 +96,6 @@ export async function Request(senderId, timestamp) {
     {
       gender: userData.gender,
       favoriteGender: userData.favoriteGender
-    },
-    Timeout,
-    () => {
-      FbSendMessage(senderId, Text(Messenges.Timeout));
     }
   );
 }
